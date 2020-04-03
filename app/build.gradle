@@ -1,13 +1,13 @@
+//Pro databinding funcionar: ativar plugin
+//Adicionar duas linhas de dependencias
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
-
-    dataBinding {
-        enabled = true
-    }
 
     buildToolsVersion "29.0.3"
 
@@ -17,6 +17,10 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
+        dataBinding {
+            enabled = true
+        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,6 +35,7 @@ android {
 }
 
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -40,6 +45,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Implementação navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
+    //kapt 'com.android.databinding:compiler:3.1.4'
 }
